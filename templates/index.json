@@ -34,8 +34,8 @@
         "section_height": 400,
         "title_size": 45,
         "show_overlay": true,
-        "overlay_color": "#000000",
-        "overlay_opacity": 30,
+        "overlay_color": "#365453",
+        "overlay_opacity": 20,
         "title_color": "#365453",
         "text_color": "#457271",
         "button_color": "#457271"
@@ -104,6 +104,53 @@
         "background_color": "#2c2c2c",
         "text_color": "#ffffff"
       }
+    },
+    "1762983097ff98477a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_58dacb9_Xd7VKg": {
+          "type": "ai_gen_block_58dacb9",
+          "settings": {
+            "logo_text": "BRAND",
+            "logo_link": "",
+            "logo_size": 24,
+            "link_1_text": "Home",
+            "link_1_url": "",
+            "link_2_text": "Shop",
+            "link_2_url": "",
+            "link_3_text": "About",
+            "link_3_url": "",
+            "link_4_text": "Contact",
+            "link_4_url": "",
+            "link_5_text": "",
+            "link_5_url": "",
+            "cta_text": "Get Started",
+            "cta_url": "",
+            "blur_amount": 10,
+            "navbar_bg_color": "rgba(255, 255, 255, 0.7)",
+            "fallback_bg_color": "#FFFFFF",
+            "border_color": "rgba(255, 255, 255, 0.3)",
+            "text_color": "#2C2C2C",
+            "link_hover_bg": "rgba(0, 0, 0, 0.05)",
+            "link_hover_color": "#000000",
+            "cta_bg_color": "#457271",
+            "cta_text_color": "#FFFFFF",
+            "cta_hover_bg": "#6dd4d8",
+            "container_width": 1200,
+            "navbar_padding": 20,
+            "menu_gap": 30,
+            "link_size": 15,
+            "link_border_radius": 6,
+            "cta_border_radius": 8,
+            "mobile_menu_bg": "rgba(255, 255, 255, 0.95)"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_58dacb9_Xd7VKg"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -114,6 +161,7 @@
     "products-grid",
     "testimonials",
     "newsletter",
-    "footer"
+    "footer",
+    "1762983097ff98477a"
   ]
 }
