@@ -26,18 +26,19 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
+        "hero_image": "shopify://shop_images/hero_image_background.webp",
         "title": "Where Memories Meet Elegance",
         "text": "Timeless jewelry with invisible technology",
         "button_text": "Shop Now",
         "button_url": "",
-        "section_height": 600,
-        "title_size": 50,
+        "section_height": 400,
+        "title_size": 45,
         "show_overlay": true,
         "overlay_color": "#000000",
         "overlay_opacity": 30,
-        "title_color": "#ffffff",
-        "text_color": "#ffffff",
-        "button_color": "#e0bfb8"
+        "title_color": "#365453",
+        "text_color": "#457271",
+        "button_color": "#457271"
       }
     },
     "value-proposition": {
