@@ -1,0 +1,149 @@
+<style>
+  #value-proposition-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  #value-proposition-{{ section.id }} .value-proposition__grid {
+    grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    #value-proposition-{{ section.id }} .value-proposition__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section id="value-proposition-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="value-proposition">
+  <div class="container">
+    {%- if section.settings.section_heading != blank -%}
+      <h2 class="text-center">{{ section.settings.section_heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="value-proposition__grid">
+        {%- for block in section.blocks -%}
+          <div class="value-item" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon_image != blank -%}
+              <div class="value-item__icon">
+                <img
+                  src="{{ block.settings.icon_image | image_url: width: 128 }}"
+                  srcset="
+                    {{ block.settings.icon_image | image_url: width: 64 }} 1x,
+                    {{ block.settings.icon_image | image_url: width: 128 }} 2x
+                  "
+                  alt="{{ block.settings.heading }}"
+                  loading="lazy"
+                  width="64"
+                  height="64"
+                >
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.heading != blank -%}
+              <h3 class="value-item__heading">{{ block.settings.heading }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.body_text != blank -%}
+              <p class="value-item__body">{{ block.settings.body_text }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Value Proposition",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Why Everlink"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Number of Columns (Desktop)",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 Columns"
+        },
+        {
+          "value": "3",
+          "label": "3 Columns"
+        },
+        {
+          "value": "4",
+          "label": "4 Columns"
+        }
+      ],
+      "default": "3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value_item",
+      "name": "Value Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image",
+          "info": "Recommended size: 128x128px"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Invisible Technology"
+        },
+        {
+          "type": "textarea",
+          "id": "body_text",
+          "label": "Body Text",
+          "default": "Seamless NFC integration that feels natural, not techy"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Value Proposition",
+      "blocks": [
+        {
+          "type": "value_item",
+          "settings": {
+            "heading": "Invisible Technology",
+            "body_text": "Seamless NFC integration that feels natural, not techy. Your memories, beautifully preserved."
+          }
+        },
+        {
+          "type": "value_item",
+          "settings": {
+            "heading": "Heritage Craftsmanship",
+            "body_text": "Premium materials, ethically sourced, sustainably made. Jewelry that honors both past and future."
+          }
+        },
+        {
+          "type": "value_item",
+          "settings": {
+            "heading": "Eternal Memories",
+            "body_text": "Preserve what matters most for future generations. Create modern heirlooms that last forever."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,138 @@
+{%- liquid
+  assign image_position_class = 'about--image-' | append: section.settings.image_position
+-%}
+
+<style>
+  #about-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+</style>
+
+<section id="about-{{ section.id }}" class="about section {{ image_position_class }}" data-section-id="{{ section.id }}" data-section-type="about-us">
+  <div class="container">
+    <div class="about__inner">
+      {%- if section.settings.about_image != blank -%}
+        <div class="about__image">
+          <img
+            src="{{ section.settings.about_image | image_url: width: 800 }}"
+            srcset="
+              {{ section.settings.about_image | image_url: width: 400 }} 400w,
+              {{ section.settings.about_image | image_url: width: 600 }} 600w,
+              {{ section.settings.about_image | image_url: width: 800 }} 800w,
+              {{ section.settings.about_image | image_url: width: 1000 }} 1000w
+            "
+            sizes="(min-width: 768px) 50vw, 100vw"
+            alt="{{ section.settings.heading }}"
+            loading="lazy"
+            width="800"
+            height="auto"
+          >
+        </div>
+      {%- endif -%}
+
+      <div class="about__content">
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.body_text != blank -%}
+          <div class="about__body">
+            {{ section.settings.body_text }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_button and section.settings.button_text != blank -%}
+          <a href="{{ section.settings.button_url | default: '#' }}" class="btn btn-secondary">
+            {{ section.settings.button_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Us",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_image",
+      "label": "Image",
+      "info": "Recommended size: 1000x1000px"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Story"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "<p>We created Everlink to bridge the gap between timeless beauty and modern connection. Every piece is designed to be a vessel for your most precious memories, combining heritage craftsmanship with invisible technology.</p><p>Our jewelry doesn't just adorn—it preserves the moments that define us, creating modern heirlooms for generations to come.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us"
+    }
+  ]
+}
+{% endschema %}

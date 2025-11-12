@@ -1,0 +1,189 @@
+{
+  "current": {
+    "color_primary": "#E0BFB8",
+    "color_secondary": "#D4AF37",
+    "color_text_primary": "#2C2C2C",
+    "color_text_secondary": "#666666",
+    "color_text_muted": "#999999",
+    "color_background": "#FFFFFF",
+    "color_background_secondary": "#F5F5F5",
+    "color_background_warm": "#F5F5DC",
+    "font_heading": "Playfair Display, serif",
+    "font_body": "Inter, sans-serif",
+    "font_size_base": 16,
+    "line_height_body": 1.6,
+    "container_max_width": 1200,
+    "section_vertical_padding": 80,
+    "element_spacing": 24,
+    "button_primary_bg": "#E0BFB8",
+    "button_primary_text": "#FFFFFF",
+    "button_secondary_bg": "#FFFFFF",
+    "button_secondary_text": "#2C2C2C",
+    "button_secondary_border": "#2C2C2C",
+    "button_border_radius": 8,
+    "button_padding_vertical": 16,
+    "button_padding_horizontal": 40,
+    "product_show_vendor": false,
+    "product_show_rating": true,
+    "product_image_ratio": "square",
+    "product_hover_zoom": true,
+    "cart_type": "drawer",
+    "cart_show_notes": true,
+    "search_enable_predictive": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_text": "Everlink",
+          "logo_width": 150,
+          "nav_link_1_text": "Our Story",
+          "nav_link_1_url": "/pages/about",
+          "nav_link_2_text": "Collections",
+          "nav_link_2_url": "/collections/all",
+          "nav_link_3_text": "How it Works",
+          "nav_link_3_url": "/pages/how-it-works",
+          "nav_link_4_text": "Contact",
+          "nav_link_4_url": "/pages/contact",
+          "sticky_header": true,
+          "header_bg_color": "#FFFFFF",
+          "header_bg_opacity": 95,
+          "text_color": "#2C2C2C"
+        }
+      },
+      "hero-banner": {
+        "type": "hero-banner",
+        "settings": {
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_opacity": 30,
+          "content_alignment": "left",
+          "headline_text": "Where Memories Meet Elegance",
+          "headline_color": "#FFFFFF",
+          "subheadline_text": "Timeless jewelry with invisible technology. Preserve the moments that matter most.",
+          "subheadline_color": "#FFFFFF",
+          "button_text": "Discover Our Collection",
+          "button_url": "/collections/all",
+          "button_bg_color": "#E0BFB8",
+          "button_text_color": "#FFFFFF",
+          "hero_height": "80vh",
+          "show_scroll_indicator": true,
+          "scroll_text": "Discover more"
+        }
+      },
+      "value-proposition": {
+        "type": "value-proposition",
+        "blocks": {
+          "value-1": {
+            "type": "value_item",
+            "settings": {
+              "heading": "Invisible Technology",
+              "body_text": "Seamless NFC integration that feels natural, not techy. Your memories, beautifully preserved."
+            }
+          },
+          "value-2": {
+            "type": "value_item",
+            "settings": {
+              "heading": "Heritage Craftsmanship",
+              "body_text": "Premium materials, ethically sourced, sustainably made. Jewelry that honors both past and future."
+            }
+          },
+          "value-3": {
+            "type": "value_item",
+            "settings": {
+              "heading": "Eternal Memories",
+              "body_text": "Preserve what matters most for future generations. Create modern heirlooms that last forever."
+            }
+          }
+        },
+        "block_order": [
+          "value-1",
+          "value-2",
+          "value-3"
+        ],
+        "settings": {
+          "section_heading": "Why Everlink",
+          "background_color": "#F5F5F5",
+          "columns": "3"
+        }
+      },
+      "about-us": {
+        "type": "about-us",
+        "settings": {
+          "image_position": "left",
+          "heading": "Our Story",
+          "body_text": "<p>We created Everlink to bridge the gap between timeless beauty and modern connection. Every piece is designed to be a vessel for your most precious memories, combining heritage craftsmanship with invisible technology.</p><p>Our jewelry doesn't just adorn—it preserves the moments that define us, creating modern heirlooms for generations to come.</p>",
+          "show_button": true,
+          "button_text": "Learn More",
+          "button_url": "/pages/about",
+          "background_color": "#FFFFFF"
+        }
+      },
+      "products-grid": {
+        "type": "products-grid",
+        "settings": {
+          "section_heading": "Our Collection",
+          "section_subheading": "Timeless pieces, infinite memories",
+          "products_to_show": 4,
+          "grid_columns": "3",
+          "show_vendor": false,
+          "background_color": "#FFFFFF"
+        }
+      },
+      "testimonials": {
+        "type": "testimonials",
+        "blocks": {
+          "testimonial-1": {
+            "type": "testimonial",
+            "settings": {
+              "quote": "This necklace holds my most precious memories. It's more than jewelry—it's a part of me.",
+              "customer_name": "Emma T."
+            }
+          },
+          "testimonial-2": {
+            "type": "testimonial",
+            "settings": {
+              "quote": "I never knew technology could feel so personal and elegant. Everlink changed how I remember.",
+              "customer_name": "Sarah L."
+            }
+          },
+          "testimonial-3": {
+            "type": "testimonial",
+            "settings": {
+              "quote": "The perfect blend of craftsmanship and innovation. This is jewelry with a soul.",
+              "customer_name": "Jessica M."
+            }
+          }
+        },
+        "block_order": [
+          "testimonial-1",
+          "testimonial-2",
+          "testimonial-3"
+        ],
+        "settings": {
+          "section_heading": "What Our Customers Say",
+          "background_color": "#F5F5DC",
+          "layout": "grid"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "Join the Everlink Community",
+          "subtext": "Be the first to know about new collections and the stories behind them",
+          "button_text": "Subscribe",
+          "background_color": "#E0BFB8",
+          "text_color": "#FFFFFF"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "brand_description": "Where memories meet elegance",
+          "copyright_text": "© 2025 Everlink. All rights reserved.",
+          "background_color": "#2C2C2C",
+          "text_color": "#FFFFFF"
+        }
+      }
+    }
+  }
+}

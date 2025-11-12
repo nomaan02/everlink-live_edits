@@ -1,0 +1,232 @@
+{%- liquid
+  assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0
+  assign alignment_class = 'hero__content--' | append: section.settings.content_alignment
+-%}
+
+<style>
+  #hero-{{ section.id }} {
+    min-height: {{ section.settings.hero_height }};
+    {%- if section.settings.hero_background_image != blank -%}
+      background-image: url('{{ section.settings.hero_background_image | image_url: width: 1920 }}');
+    {%- endif -%}
+  }
+
+  #hero-{{ section.id }} .hero__overlay {
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ overlay_opacity }};
+  }
+
+  #hero-{{ section.id }} .hero__headline {
+    color: {{ section.settings.headline_color }};
+  }
+
+  #hero-{{ section.id }} .hero__subheadline {
+    color: {{ section.settings.subheadline_color }};
+  }
+
+  #hero-{{ section.id }} .btn-primary {
+    background-color: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+  }
+
+  #hero-{{ section.id }} .btn-primary:hover {
+    background-color: {{ section.settings.button_bg_color | color_darken: 10 }};
+  }
+
+  #hero-{{ section.id }} .hero__scroll-indicator {
+    color: {{ section.settings.headline_color }};
+  }
+</style>
+
+<section id="hero-{{ section.id }}" class="hero section" data-section-id="{{ section.id }}" data-section-type="hero-banner">
+  {%- if section.settings.show_overlay -%}
+    <div class="hero__overlay"></div>
+  {%- endif -%}
+
+  <div class="container">
+    <div class="hero__content {{ alignment_class }}">
+      {%- if section.settings.headline_text != blank -%}
+        <h1 class="hero__headline">
+          {{ section.settings.headline_text }}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheadline_text != blank -%}
+        <p class="hero__subheadline">
+          {{ section.settings.subheadline_text }}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_url | default: '#' }}" class="btn btn-primary">
+          {{ section.settings.button_text }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.settings.show_scroll_indicator -%}
+    <div class="hero__scroll-indicator">
+      <span class="hero__scroll-text">{{ section.settings.scroll_text }}</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_background_image",
+      "label": "Background Image",
+      "info": "Recommended size: 1920x1080px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show Overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "hero_height",
+      "label": "Hero Height",
+      "options": [
+        {
+          "value": "60vh",
+          "label": "Small (60vh)"
+        },
+        {
+          "value": "80vh",
+          "label": "Medium (80vh)"
+        },
+        {
+          "value": "100vh",
+          "label": "Full Height (100vh)"
+        }
+      ],
+      "default": "80vh"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "headline_text",
+      "label": "Headline",
+      "default": "Where Memories Meet Elegance"
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "textarea",
+      "id": "subheadline_text",
+      "label": "Subheadline",
+      "default": "Timeless jewelry with invisible technology. Preserve the moments that matter most."
+    },
+    {
+      "type": "color",
+      "id": "subheadline_color",
+      "label": "Subheadline Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Discover Our Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#E0BFB8"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Scroll Indicator"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_indicator",
+      "label": "Show Scroll Indicator",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "scroll_text",
+      "label": "Scroll Indicator Text",
+      "default": "Discover more"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

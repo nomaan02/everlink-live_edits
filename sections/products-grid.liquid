@@ -1,0 +1,180 @@
+<style>
+  #products-grid-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  #products-grid-{{ section.id }} .products-grid {
+    grid-template-columns: repeat({{ section.settings.grid_columns }}, 1fr);
+  }
+
+  @media (max-width: 1024px) {
+    #products-grid-{{ section.id }} .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    #products-grid-{{ section.id }} .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section id="products-grid-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="products-grid">
+  <div class="container">
+    {%- if section.settings.section_heading != blank -%}
+      <h2 class="text-center">{{ section.settings.section_heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.section_subheading != blank -%}
+      <p class="text-center">{{ section.settings.section_subheading }}</p>
+    {%- endif -%}
+
+    {%- liquid
+      assign collection = collections[section.settings.featured_collection]
+      assign products_to_show = section.settings.products_to_show
+    -%}
+
+    {%- if collection != blank and collection.products.size > 0 -%}
+      <div class="products-grid">
+        {%- for product in collection.products limit: products_to_show -%}
+          <div class="product-card">
+            <a href="{{ product.url }}" class="product-card__link">
+              {%- if product.featured_image -%}
+                <div class="product-card__image">
+                  <img
+                    src="{{ product.featured_image | image_url: width: 600 }}"
+                    srcset="
+                      {{ product.featured_image | image_url: width: 300 }} 300w,
+                      {{ product.featured_image | image_url: width: 400 }} 400w,
+                      {{ product.featured_image | image_url: width: 600 }} 600w
+                    "
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    alt="{{ product.featured_image.alt | default: product.title }}"
+                    loading="lazy"
+                    width="600"
+                    height="600"
+                  >
+                </div>
+              {%- endif -%}
+
+              <div class="product-card__content">
+                {%- if section.settings.show_vendor and product.vendor != blank -%}
+                  <p class="product-card__vendor">{{ product.vendor }}</p>
+                {%- endif -%}
+
+                <h3 class="product-card__title">{{ product.title }}</h3>
+
+                <div class="product-card__price">
+                  {%- if product.compare_at_price > product.price -%}
+                    <span class="product-card__price--sale">
+                      {{ product.price | money }}
+                    </span>
+                    <span class="product-card__price--compare">
+                      {{ product.compare_at_price | money }}
+                    </span>
+                  {%- else -%}
+                    <span>{{ product.price | money }}</span>
+                  {%- endif -%}
+                </div>
+
+                {%- unless product.available -%}
+                  <span class="product-card__badge product-card__badge--sold-out">
+                    Sold Out
+                  </span>
+                {%- endunless -%}
+              </div>
+            </a>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="products-grid__placeholder">
+        <p>Please select a collection to display products.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Products Grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Our Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subheading",
+      "label": "Section Subheading",
+      "default": "Timeless pieces, infinite memories"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Featured Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 2,
+      "label": "Number of Products",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "grid_columns",
+      "label": "Grid Columns (Desktop)",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 Columns"
+        },
+        {
+          "value": "3",
+          "label": "3 Columns"
+        },
+        {
+          "value": "4",
+          "label": "4 Columns"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products Grid"
+    }
+  ]
+}
+{% endschema %}

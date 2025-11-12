@@ -1,0 +1,140 @@
+<style>
+  #testimonials-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+</style>
+
+<section id="testimonials-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="testimonials">
+  <div class="container">
+    {%- if section.settings.section_heading != blank -%}
+      <h2 class="text-center">{{ section.settings.section_heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="testimonials__grid">
+        {%- for block in section.blocks -%}
+          <div class="testimonial-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.quote != blank -%}
+              <blockquote class="testimonial-card__quote">
+                {{ block.settings.quote }}
+              </blockquote>
+            {%- endif -%}
+
+            <div class="testimonial-card__author">
+              {%- if block.settings.customer_photo != blank -%}
+                <div class="testimonial-card__photo">
+                  <img
+                    src="{{ block.settings.customer_photo | image_url: width: 96 }}"
+                    srcset="
+                      {{ block.settings.customer_photo | image_url: width: 48 }} 1x,
+                      {{ block.settings.customer_photo | image_url: width: 96 }} 2x
+                    "
+                    alt="{{ block.settings.customer_name }}"
+                    loading="lazy"
+                    width="48"
+                    height="48"
+                  >
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.customer_name != blank -%}
+                <cite class="testimonial-card__name">{{ block.settings.customer_name }}</cite>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F5F5DC"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "grid",
+      "info": "Carousel functionality requires custom JavaScript"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "This necklace holds my most precious memories. It's more than jewelry—it's a part of me."
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name",
+          "default": "Emma T."
+        },
+        {
+          "type": "image_picker",
+          "id": "customer_photo",
+          "label": "Customer Photo (Optional)",
+          "info": "Recommended size: 96x96px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "This necklace holds my most precious memories. It's more than jewelry—it's a part of me.",
+            "customer_name": "Emma T."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I never knew technology could feel so personal and elegant. Everlink changed how I remember.",
+            "customer_name": "Sarah L."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The perfect blend of craftsmanship and innovation. This is jewelry with a soul.",
+            "customer_name": "Jessica M."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

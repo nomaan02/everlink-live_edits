@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "header": {
+      "type": "header"
+    },
+    "hero-banner": {
+      "type": "hero-banner"
+    },
+    "value-proposition": {
+      "type": "value-proposition"
+    },
+    "about-us": {
+      "type": "about-us"
+    },
+    "products-grid": {
+      "type": "products-grid"
+    },
+    "testimonials": {
+      "type": "testimonials"
+    },
+    "newsletter": {
+      "type": "newsletter"
+    },
+    "footer": {
+      "type": "footer"
+    }
+  },
+  "order": [
+    "header",
+    "hero-banner",
+    "value-proposition",
+    "about-us",
+    "products-grid",
+    "testimonials",
+    "newsletter",
+    "footer"
+  ]
+}

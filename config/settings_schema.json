@@ -1,0 +1,426 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Everlink Luxury",
+    "theme_version": "1.0.0",
+    "theme_author": "Everlink",
+    "theme_documentation_url": "https://everlink.com/theme-docs",
+    "theme_support_url": "https://support.everlink.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Accent Color",
+        "default": "#E0BFB8",
+        "info": "Rose gold - used for CTAs and highlights"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Accent Color",
+        "default": "#D4AF37",
+        "info": "Gold - used for secondary accents"
+      },
+      {
+        "type": "header",
+        "content": "Text Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_text_primary",
+        "label": "Primary Text Color",
+        "default": "#2C2C2C"
+      },
+      {
+        "type": "color",
+        "id": "color_text_secondary",
+        "label": "Secondary Text Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Muted Text Color",
+        "default": "#999999"
+      },
+      {
+        "type": "header",
+        "content": "Background Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_background_secondary",
+        "label": "Secondary Background Color",
+        "default": "#F5F5F5"
+      },
+      {
+        "type": "color",
+        "id": "color_background_warm",
+        "label": "Warm Background Color",
+        "default": "#F5F5DC",
+        "info": "Used for testimonials and special sections"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Families"
+      },
+      {
+        "type": "select",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "options": [
+          {
+            "value": "Playfair Display, serif",
+            "label": "Playfair Display (Recommended)"
+          },
+          {
+            "value": "Cormorant, serif",
+            "label": "Cormorant"
+          },
+          {
+            "value": "Lora, serif",
+            "label": "Lora"
+          },
+          {
+            "value": "Georgia, serif",
+            "label": "Georgia"
+          },
+          {
+            "value": "Times New Roman, serif",
+            "label": "Times New Roman"
+          }
+        ],
+        "default": "Playfair Display, serif",
+        "info": "Elegant serif font for headings"
+      },
+      {
+        "type": "select",
+        "id": "font_body",
+        "label": "Body Font",
+        "options": [
+          {
+            "value": "Inter, sans-serif",
+            "label": "Inter (Recommended)"
+          },
+          {
+            "value": "Raleway, sans-serif",
+            "label": "Raleway"
+          },
+          {
+            "value": "Nunito Sans, sans-serif",
+            "label": "Nunito Sans"
+          },
+          {
+            "value": "system-ui, sans-serif",
+            "label": "System Default"
+          },
+          {
+            "value": "Arial, sans-serif",
+            "label": "Arial"
+          }
+        ],
+        "default": "Inter, sans-serif",
+        "info": "Modern sans-serif font for body text"
+      },
+      {
+        "type": "header",
+        "content": "Font Sizes"
+      },
+      {
+        "type": "range",
+        "id": "font_size_base",
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Base Font Size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "line_height_body",
+        "min": 1.4,
+        "max": 2.0,
+        "step": 0.1,
+        "label": "Body Line Height",
+        "default": 1.6
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Container Settings"
+      },
+      {
+        "type": "range",
+        "id": "container_max_width",
+        "min": 960,
+        "max": 1440,
+        "step": 40,
+        "unit": "px",
+        "label": "Container Max Width",
+        "default": 1200,
+        "info": "Maximum width of content containers"
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "range",
+        "id": "section_vertical_padding",
+        "min": 40,
+        "max": 160,
+        "step": 20,
+        "unit": "px",
+        "label": "Section Vertical Padding",
+        "default": 80,
+        "info": "Vertical padding for sections on desktop"
+      },
+      {
+        "type": "range",
+        "id": "element_spacing",
+        "min": 16,
+        "max": 64,
+        "step": 8,
+        "unit": "px",
+        "label": "Element Spacing",
+        "default": 24,
+        "info": "Spacing between elements"
+      }
+    ]
+  },
+  {
+    "name": "Buttons",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary Button"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_bg",
+        "label": "Background Color",
+        "default": "#E0BFB8"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_text",
+        "label": "Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Secondary Button"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_bg",
+        "label": "Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_text",
+        "label": "Text Color",
+        "default": "#2C2C2C"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_border",
+        "label": "Border Color",
+        "default": "#2C2C2C"
+      },
+      {
+        "type": "header",
+        "content": "Button Style"
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Border Radius",
+        "default": 8
+      },
+      {
+        "type": "range",
+        "id": "button_padding_vertical",
+        "min": 8,
+        "max": 24,
+        "step": 2,
+        "unit": "px",
+        "label": "Vertical Padding",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "button_padding_horizontal",
+        "min": 20,
+        "max": 60,
+        "step": 4,
+        "unit": "px",
+        "label": "Horizontal Padding",
+        "default": 40
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social Media Links"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_url",
+        "label": "Instagram URL",
+        "info": "https://instagram.com/yourstore"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_url",
+        "label": "Facebook URL",
+        "info": "https://facebook.com/yourstore"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest_url",
+        "label": "Pinterest URL",
+        "info": "https://pinterest.com/yourstore"
+      },
+      {
+        "type": "url",
+        "id": "social_twitter_url",
+        "label": "Twitter URL",
+        "info": "https://twitter.com/yourstore"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok_url",
+        "label": "TikTok URL",
+        "info": "https://tiktok.com/@yourstore"
+      }
+    ]
+  },
+  {
+    "name": "Product Cards",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product Card Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_vendor",
+        "label": "Show Vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_rating",
+        "label": "Show Product Ratings",
+        "default": true,
+        "info": "Requires a product review app"
+      },
+      {
+        "type": "select",
+        "id": "product_image_ratio",
+        "label": "Image Aspect Ratio",
+        "options": [
+          {
+            "value": "square",
+            "label": "Square (1:1)"
+          },
+          {
+            "value": "portrait",
+            "label": "Portrait (4:5)"
+          },
+          {
+            "value": "landscape",
+            "label": "Landscape (16:9)"
+          }
+        ],
+        "default": "square"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_hover_zoom",
+        "label": "Enable Image Zoom on Hover",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cart Settings"
+      },
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart Type",
+        "options": [
+          {
+            "value": "page",
+            "label": "Page"
+          },
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          }
+        ],
+        "default": "drawer",
+        "info": "Drawer cart requires additional JavaScript"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_notes",
+        "label": "Enable Cart Notes",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Search Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "search_enable_predictive",
+        "label": "Enable Predictive Search",
+        "default": true,
+        "info": "Show search suggestions as you type"
+      }
+    ]
+  }
+]
