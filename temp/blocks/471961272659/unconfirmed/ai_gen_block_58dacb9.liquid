@@ -1,6 +1,592 @@
+{% doc %}
+  @prompt
+    Create a navigation bar with a glassmorphism effect featuring a translucent background with backdrop blur. The navbar should have a semi-transparent background (rgba with low opacity) and use backdrop-filter with blur to create the frosted glass appearance. Include smooth transitions and ensure the effect works well when scrolling over content.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-glass-navbar-{{ ai_gen_id }} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: {{ block.settings.navbar_bg_color }};
+    backdrop-filter: blur({{ block.settings.blur_amount }}px);
+    -webkit-backdrop-filter: blur({{ block.settings.blur_amount }}px);
+    border-bottom: 1px solid {{ block.settings.border_color }};
+    transition: all 0.3s ease;
+  }
+
+  .ai-glass-navbar-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: {{ block.settings.navbar_padding }}px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ai-glass-navbar-logo-{{ ai_gen_id }} {
+    font-family: {{ settings.font_heading }};
+    font-size: {{ block.settings.logo_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-glass-navbar-logo-{{ ai_gen_id }}:hover {
+    opacity: 0.8;
+  }
+
+  .ai-glass-navbar-menu-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.menu_gap }}px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ai-glass-navbar-menu-item-{{ ai_gen_id }} {
+    margin: 0;
+  }
+
+  .ai-glass-navbar-link-{{ ai_gen_id }} {
+    font-family: {{ settings.font_body }};
+    font-size: {{ block.settings.link_size }}px;
+    color: {{ block.settings.text_color }};
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: {{ block.settings.link_border_radius }}px;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .ai-glass-navbar-link-{{ ai_gen_id }}:hover {
+    background: {{ block.settings.link_hover_bg }};
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-glass-navbar-cta-{{ ai_gen_id }} {
+    font-family: {{ settings.font_body }};
+    font-size: {{ block.settings.link_size }}px;
+    color: {{ block.settings.cta_text_color }};
+    background: {{ block.settings.cta_bg_color }};
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: {{ block.settings.cta_border_radius }}px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ai-glass-navbar-cta-{{ ai_gen_id }}:hover {
+    background: {{ block.settings.cta_hover_bg }};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-glass-navbar-mobile-toggle-{{ ai_gen_id }} {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-glass-navbar-mobile-toggle-{{ ai_gen_id }} svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-glass-navbar-menu-{{ ai_gen_id }} {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: {{ block.settings.mobile_menu_bg }};
+      backdrop-filter: blur({{ block.settings.blur_amount }}px);
+      -webkit-backdrop-filter: blur({{ block.settings.blur_amount }}px);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px 30px 30px;
+      gap: 0;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .ai-glass-navbar-menu-{{ ai_gen_id }}.active {
+      right: 0;
+    }
+
+    .ai-glass-navbar-menu-item-{{ ai_gen_id }} {
+      width: 100%;
+      border-bottom: 1px solid {{ block.settings.border_color }};
+    }
+
+    .ai-glass-navbar-link-{{ ai_gen_id }} {
+      display: block;
+      padding: 16px 0;
+      width: 100%;
+    }
+
+    .ai-glass-navbar-cta-{{ ai_gen_id }} {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .ai-glass-navbar-mobile-toggle-{{ ai_gen_id }} {
+      display: block;
+    }
+
+    .ai-glass-navbar-mobile-close-{{ ai_gen_id }} {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: {{ block.settings.text_color }};
+    }
+
+    .ai-glass-navbar-mobile-close-{{ ai_gen_id }} svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .ai-glass-navbar-overlay-{{ ai_gen_id }} {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-glass-navbar-overlay-{{ ai_gen_id }}.active {
+    display: block;
+    opacity: 1;
+  }
+
+  @supports not (backdrop-filter: blur(10px)) {
+    .ai-glass-navbar-{{ ai_gen_id }} {
+      background: {{ block.settings.fallback_bg_color }};
+    }
+  }
+{% endstyle %}
+
+<glass-navbar-{{ ai_gen_id }} class="ai-glass-navbar-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-glass-navbar-container-{{ ai_gen_id }}">
+    {% if block.settings.logo_text != blank %}
+      <a href="{{ block.settings.logo_link }}" class="ai-glass-navbar-logo-{{ ai_gen_id }}">
+        {{ block.settings.logo_text }}
+      </a>
+    {% endif %}
+
+    <nav>
+      <ul class="ai-glass-navbar-menu-{{ ai_gen_id }}">
+        <button class="ai-glass-navbar-mobile-close-{{ ai_gen_id }}" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        {% if block.settings.link_1_text != blank %}
+          <li class="ai-glass-navbar-menu-item-{{ ai_gen_id }}">
+            <a href="{{ block.settings.link_1_url }}" class="ai-glass-navbar-link-{{ ai_gen_id }}">
+              {{ block.settings.link_1_text }}
+            </a>
+          </li>
+        {% endif %}
+
+        {% if block.settings.link_2_text != blank %}
+          <li class="ai-glass-navbar-menu-item-{{ ai_gen_id }}">
+            <a href="{{ block.settings.link_2_url }}" class="ai-glass-navbar-link-{{ ai_gen_id }}">
+              {{ block.settings.link_2_text }}
+            </a>
+          </li>
+        {% endif %}
+
+        {% if block.settings.link_3_text != blank %}
+          <li class="ai-glass-navbar-menu-item-{{ ai_gen_id }}">
+            <a href="{{ block.settings.link_3_url }}" class="ai-glass-navbar-link-{{ ai_gen_id }}">
+              {{ block.settings.link_3_text }}
+            </a>
+          </li>
+        {% endif %}
+
+        {% if block.settings.link_4_text != blank %}
+          <li class="ai-glass-navbar-menu-item-{{ ai_gen_id }}">
+            <a href="{{ block.settings.link_4_url }}" class="ai-glass-navbar-link-{{ ai_gen_id }}">
+              {{ block.settings.link_4_text }}
+            </a>
+          </li>
+        {% endif %}
+
+        {% if block.settings.link_5_text != blank %}
+          <li class="ai-glass-navbar-menu-item-{{ ai_gen_id }}">
+            <a href="{{ block.settings.link_5_url }}" class="ai-glass-navbar-link-{{ ai_gen_id }}">
+              {{ block.settings.link_5_text }}
+            </a>
+          </li>
+        {% endif %}
+
+        {% if block.settings.cta_text != blank %}
+          <li class="ai-glass-navbar-menu-item-{{ ai_gen_id }}">
+            <a href="{{ block.settings.cta_url }}" class="ai-glass-navbar-cta-{{ ai_gen_id }}">
+              {{ block.settings.cta_text }}
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <button class="ai-glass-navbar-mobile-toggle-{{ ai_gen_id }}" aria-label="Open menu" aria-expanded="false">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</glass-navbar-{{ ai_gen_id }}>
+
+<div class="ai-glass-navbar-overlay-{{ ai_gen_id }}"></div>
+
+<script>
+  (function() {
+    class GlassNavbar{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.mobileToggle = this.querySelector('.ai-glass-navbar-mobile-toggle-{{ ai_gen_id }}');
+        this.mobileClose = this.querySelector('.ai-glass-navbar-mobile-close-{{ ai_gen_id }}');
+        this.menu = this.querySelector('.ai-glass-navbar-menu-{{ ai_gen_id }}');
+        this.overlay = document.querySelector('.ai-glass-navbar-overlay-{{ ai_gen_id }}');
+
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        if (this.mobileToggle) {
+          this.mobileToggle.addEventListener('click', () => this.toggleMenu());
+        }
+
+        if (this.mobileClose) {
+          this.mobileClose.addEventListener('click', () => this.closeMenu());
+        }
+
+        if (this.overlay) {
+          this.overlay.addEventListener('click', () => this.closeMenu());
+        }
+
+        this.querySelectorAll('.ai-glass-navbar-link-{{ ai_gen_id }}').forEach((link) => {
+          link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+              this.closeMenu();
+            }
+          });
+        });
+      }
+
+      toggleMenu() {
+        const isActive = this.menu.classList.contains('active');
+        if (isActive) {
+          this.closeMenu();
+        } else {
+          this.openMenu();
+        }
+      }
+
+      openMenu() {
+        this.menu.classList.add('active');
+        this.overlay.classList.add('active');
+        this.mobileToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      closeMenu() {
+        this.menu.classList.remove('active');
+        this.overlay.classList.remove('active');
+        this.mobileToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    }
+
+    customElements.define('glass-navbar-{{ ai_gen_id }}', GlassNavbar{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Glassmorphism navbar",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "BRAND"
+    },
+    {
+      "type": "url",
+      "id": "logo_link",
+      "label": "Logo link"
+    },
+    {
+      "type": "range",
+      "id": "logo_size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo size",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Navigation links"
+    },
+    {
+      "type": "text",
+      "id": "link_1_text",
+      "label": "Link 1 text",
+      "default": "Home"
+    },
+    {
+      "type": "url",
+      "id": "link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_2_text",
+      "label": "Link 2 text",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_3_text",
+      "label": "Link 3 text",
+      "default": "About"
+    },
+    {
+      "type": "url",
+      "id": "link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_4_text",
+      "label": "Link 4 text",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "link_4_url",
+      "label": "Link 4 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_5_text",
+      "label": "Link 5 text"
+    },
+    {
+      "type": "url",
+      "id": "link_5_url",
+      "label": "Link 5 URL"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL"
+    },
+    {
+      "type": "header",
+      "content": "Glassmorphism effect"
+    },
+    {
+      "type": "range",
+      "id": "blur_amount",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Blur amount",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "navbar_bg_color",
+      "label": "Background color",
+      "default": "rgba(255, 255, 255, 0.7)"
+    },
+    {
+      "type": "color",
+      "id": "fallback_bg_color",
+      "label": "Fallback background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "rgba(255, 255, 255, 0.3)"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_bg",
+      "label": "Link hover background",
+      "default": "rgba(0, 0, 0, 0.05)"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "CTA background",
+      "default": "#457271"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "CTA text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "cta_hover_bg",
+      "label": "CTA hover background",
+      "default": "#6dd4d8"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 960,
+      "max": 1440,
+      "step": 40,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "navbar_padding",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "menu_gap",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Menu gap",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "link_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Link size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "link_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Link border radius",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "cta_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "CTA border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Mobile menu"
+    },
+    {
+      "type": "color",
+      "id": "mobile_menu_bg",
+      "label": "Mobile menu background",
+      "default": "rgba(255, 255, 255, 0.95)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Glassmorphism navbar"
+    }
+  ]
+}
 {% endschema %}
