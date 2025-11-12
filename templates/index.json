@@ -11,6 +11,7 @@
   "sections": {
     "header": {
       "type": "header",
+      "disabled": true,
       "settings": {
         "logo_image": "shopify://shop_images/title-image.png",
         "logo_text": "Everlink",
@@ -30,9 +31,9 @@
         "ai_gen_block_58dacb9_BCyMWU": {
           "type": "ai_gen_block_58dacb9",
           "settings": {
-            "logo_text": "BRAND",
+            "logo_text": "EVERLINK",
             "logo_link": "",
-            "logo_size": 24,
+            "logo_size": 20,
             "link_1_text": "Home",
             "link_1_url": "",
             "link_2_text": "Shop",
@@ -43,25 +44,25 @@
             "link_4_url": "",
             "link_5_text": "",
             "link_5_url": "",
-            "cta_text": "Get Started",
+            "cta_text": "",
             "cta_url": "",
-            "blur_amount": 10,
-            "navbar_bg_color": "rgba(255, 255, 255, 0.7)",
-            "fallback_bg_color": "#FFFFFF",
-            "border_color": "rgba(255, 255, 255, 0.3)",
-            "text_color": "#2C2C2C",
+            "blur_amount": 20,
+            "navbar_bg_color": "rgba(0, 0, 0, 0.05)",
+            "fallback_bg_color": "rgba(0, 0, 0, 0.05)",
+            "border_color": "rgba(0, 0, 0, 0.05)",
+            "text_color": "#154342",
             "link_hover_bg": "rgba(0, 0, 0, 0.05)",
             "link_hover_color": "#000000",
             "cta_bg_color": "#457271",
             "cta_text_color": "#FFFFFF",
             "cta_hover_bg": "#6dd4d8",
-            "container_width": 1200,
-            "navbar_padding": 20,
+            "container_width": 1280,
+            "navbar_padding": 12,
             "menu_gap": 30,
             "link_size": 15,
             "link_border_radius": 6,
             "cta_border_radius": 8,
-            "mobile_menu_bg": "rgba(255, 255, 255, 0.95)"
+            "mobile_menu_bg": "#ffffff"
           },
           "blocks": {}
         }
@@ -124,7 +125,7 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "hero_image": "shopify://shop_images/Editorial_Fashion_Accessory_Brand_Banner_for_Shopify.png",
+        "hero_image": "shopify://shop_images/HERO_BANNER_UPDATED.jpg",
         "title": "",
         "text": "",
         "button_text": "",
