@@ -5,27 +5,12 @@
   endif
 
   assign logo_width = section.settings.logo_width
-  assign bg_opacity = section.settings.header_bg_opacity | divided_by: 100.0
 -%}
 
 <style>
-  #shopify-section-{{ section.id }} .header {
-    background-color: rgba({{ section.settings.header_bg_color.red }}, {{ section.settings.header_bg_color.green }}, {{ section.settings.header_bg_color.blue }}, {{ bg_opacity }});
-    color: {{ section.settings.text_color }};
-  }
-
   #shopify-section-{{ section.id }} .header__logo img {
     width: {{ logo_width }}px;
     height: auto;
-  }
-
-  #shopify-section-{{ section.id }} .header__nav a {
-    color: {{ section.settings.text_color }};
-  }
-
-  #shopify-section-{{ section.id }} .header__nav a:focus {
-    outline: 2px solid {{ section.settings.text_color }};
-    outline-offset: 4px;
   }
 </style>
 
@@ -79,14 +64,6 @@
               </a>
             </li>
           {%- endif -%}
-
-          {%- if section.settings.nav_link_4_text != blank -%}
-            <li>
-              <a href="{{ section.settings.nav_link_4_url | default: '#' }}">
-                {{ section.settings.nav_link_4_text }}
-              </a>
-            </li>
-          {%- endif -%}
         </ul>
       </nav>
 
@@ -107,105 +84,62 @@
     {
       "type": "image_picker",
       "id": "logo_image",
-      "label": "Logo Image",
-      "info": "Recommended size: 300x100px"
+      "label": "Logo image"
     },
     {
       "type": "text",
       "id": "logo_text",
-      "label": "Logo Text (if no image)",
+      "label": "Logo text",
       "default": "Everlink"
     },
     {
       "type": "range",
       "id": "logo_width",
       "min": 80,
-      "max": 250,
+      "max": 240,
       "step": 10,
       "unit": "px",
-      "label": "Logo Width",
+      "label": "Logo width",
       "default": 150
-    },
-    {
-      "type": "header",
-      "content": "Navigation Links"
     },
     {
       "type": "text",
       "id": "nav_link_1_text",
-      "label": "Navigation Link 1 Text",
+      "label": "Nav link 1",
       "default": "Our Story"
     },
     {
       "type": "url",
       "id": "nav_link_1_url",
-      "label": "Navigation Link 1 URL"
+      "label": "Nav link 1 URL"
     },
     {
       "type": "text",
       "id": "nav_link_2_text",
-      "label": "Navigation Link 2 Text",
+      "label": "Nav link 2",
       "default": "Collections"
     },
     {
       "type": "url",
       "id": "nav_link_2_url",
-      "label": "Navigation Link 2 URL"
+      "label": "Nav link 2 URL"
     },
     {
       "type": "text",
       "id": "nav_link_3_text",
-      "label": "Navigation Link 3 Text",
-      "default": "How it Works"
-    },
-    {
-      "type": "url",
-      "id": "nav_link_3_url",
-      "label": "Navigation Link 3 URL"
-    },
-    {
-      "type": "text",
-      "id": "nav_link_4_text",
-      "label": "Navigation Link 4 Text",
+      "label": "Nav link 3",
       "default": "Contact"
     },
     {
       "type": "url",
-      "id": "nav_link_4_url",
-      "label": "Navigation Link 4 URL"
-    },
-    {
-      "type": "header",
-      "content": "Header Settings"
+      "id": "nav_link_3_url",
+      "label": "Nav link 3 URL"
     },
     {
       "type": "checkbox",
       "id": "sticky_header",
-      "label": "Sticky Header",
+      "label": "Sticky header",
       "default": true
-    },
-    {
-      "type": "color",
-      "id": "header_bg_color",
-      "label": "Background Color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "range",
-      "id": "header_bg_opacity",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Background Opacity",
-      "default": 90,
-      "info": "Recommended: 90% for modern glassmorphism effect"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#2C2C2C"
     }
   ]
 }

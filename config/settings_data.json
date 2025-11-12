@@ -35,39 +35,30 @@
         "type": "header",
         "settings": {
           "logo_text": "Everlink",
-          "logo_width": 150,
           "nav_link_1_text": "Our Story",
           "nav_link_1_url": "/pages/about",
           "nav_link_2_text": "Collections",
           "nav_link_2_url": "/collections/all",
-          "nav_link_3_text": "How it Works",
-          "nav_link_3_url": "/pages/how-it-works",
-          "nav_link_4_text": "Contact",
-          "nav_link_4_url": "/pages/contact",
-          "sticky_header": true,
-          "header_bg_color": "#FFFFFF",
-          "header_bg_opacity": 95,
-          "text_color": "#2C2C2C"
+          "nav_link_3_text": "Contact",
+          "nav_link_3_url": "/pages/contact",
+          "sticky_header": true
         }
       },
       "hero-banner": {
         "type": "hero-banner",
         "settings": {
+          "title": "Where Memories Meet Elegance",
+          "text": "Timeless jewelry with invisible technology",
+          "button_text": "Shop Now",
+          "button_url": "/collections/all",
+          "section_height": 600,
+          "title_size": 50,
           "show_overlay": true,
           "overlay_color": "#000000",
           "overlay_opacity": 30,
-          "content_alignment": "left",
-          "headline_text": "Where Memories Meet Elegance",
-          "headline_color": "#FFFFFF",
-          "subheadline_text": "Timeless jewelry with invisible technology. Preserve the moments that matter most.",
-          "subheadline_color": "#FFFFFF",
-          "button_text": "Discover Our Collection",
-          "button_url": "/collections/all",
-          "button_bg_color": "#E0BFB8",
-          "button_text_color": "#FFFFFF",
-          "hero_height": "80vh",
-          "show_scroll_indicator": true,
-          "scroll_text": "Discover more"
+          "title_color": "#FFFFFF",
+          "text_color": "#FFFFFF",
+          "button_color": "#E0BFB8"
         }
       },
       "value-proposition": {
