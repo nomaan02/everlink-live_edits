@@ -11,24 +11,73 @@
   "sections": {
     "header": {
       "type": "header",
-      "disabled": true,
       "settings": {
+        "logo_image": "shopify://shop_images/title-image.png",
         "logo_text": "Everlink",
-        "logo_width": 140,
-        "nav_link_1_text": "Our Story",
+        "logo_width": 240,
+        "nav_link_1_text": "",
         "nav_link_1_url": "",
-        "nav_link_2_text": "Collections",
+        "nav_link_2_text": "",
         "nav_link_2_url": "",
-        "nav_link_3_text": "Contact",
+        "nav_link_3_text": "",
         "nav_link_3_url": "",
         "sticky_header": true
       }
+    },
+    "blocks_bDFUAx": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_58dacb9_BCyMWU": {
+          "type": "ai_gen_block_58dacb9",
+          "settings": {
+            "logo_text": "BRAND",
+            "logo_link": "",
+            "logo_size": 24,
+            "link_1_text": "Home",
+            "link_1_url": "",
+            "link_2_text": "Shop",
+            "link_2_url": "",
+            "link_3_text": "About",
+            "link_3_url": "",
+            "link_4_text": "Contact",
+            "link_4_url": "",
+            "link_5_text": "",
+            "link_5_url": "",
+            "cta_text": "Get Started",
+            "cta_url": "",
+            "blur_amount": 10,
+            "navbar_bg_color": "rgba(255, 255, 255, 0.7)",
+            "fallback_bg_color": "#FFFFFF",
+            "border_color": "rgba(255, 255, 255, 0.3)",
+            "text_color": "#2C2C2C",
+            "link_hover_bg": "rgba(0, 0, 0, 0.05)",
+            "link_hover_color": "#000000",
+            "cta_bg_color": "#457271",
+            "cta_text_color": "#FFFFFF",
+            "cta_hover_bg": "#6dd4d8",
+            "container_width": 1200,
+            "navbar_padding": 20,
+            "menu_gap": 30,
+            "link_size": 15,
+            "link_border_radius": 6,
+            "cta_border_radius": 8,
+            "mobile_menu_bg": "rgba(255, 255, 255, 0.95)"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_58dacb9_BCyMWU"
+      ],
+      "name": "Glassmorphism navbar",
+      "settings": {}
     },
     "blocks_GBpXBF": {
       "type": "_blocks",
       "blocks": {
         "ai_gen_block_58dacb9_BdiYBx": {
           "type": "ai_gen_block_58dacb9",
+          "disabled": true,
           "settings": {
             "logo_text": "everlink",
             "logo_link": "",
@@ -69,21 +118,22 @@
       "block_order": [
         "ai_gen_block_58dacb9_BdiYBx"
       ],
+      "disabled": true,
       "settings": {}
     },
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "hero_image": "shopify://shop_images/hero_image_background.webp",
-        "title": "Where Memories Meet Elegance",
-        "text": "Timeless jewelry with invisible technology",
-        "button_text": "Shop Now",
+        "hero_image": "shopify://shop_images/Editorial_Fashion_Accessory_Brand_Banner_for_Shopify.png",
+        "title": "",
+        "text": "",
+        "button_text": "",
         "button_url": "",
-        "section_height": 400,
-        "title_size": 45,
+        "section_height": 800,
+        "title_size": 30,
         "show_overlay": true,
         "overlay_color": "#365453",
-        "overlay_opacity": 20,
+        "overlay_opacity": 0,
         "title_color": "#365453",
         "text_color": "#457271",
         "button_color": "#457271"
@@ -93,8 +143,8 @@
       "type": "value-proposition",
       "settings": {
         "section_heading": "Why Everlink",
-        "background_color": "#f5f5f5",
-        "columns": "3"
+        "background_color": "#ffffff",
+        "columns": "2"
       }
     },
     "about-us": {
@@ -106,7 +156,7 @@
         "show_button": true,
         "button_text": "Learn More",
         "button_url": "",
-        "background_color": "#ffffff"
+        "background_color": "rgba(255, 255, 255, 0.3)"
       }
     },
     "products-grid": {
@@ -156,6 +206,7 @@
   },
   "order": [
     "header",
+    "blocks_bDFUAx",
     "blocks_GBpXBF",
     "hero-banner",
     "value-proposition",
