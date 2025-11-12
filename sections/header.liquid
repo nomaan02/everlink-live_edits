@@ -9,19 +9,23 @@
 -%}
 
 <style>
-  .header {
-    background-color: {{ section.settings.header_bg_color }};
-    opacity: {{ bg_opacity }};
+  #shopify-section-{{ section.id }} .header {
+    background-color: rgba({{ section.settings.header_bg_color.red }}, {{ section.settings.header_bg_color.green }}, {{ section.settings.header_bg_color.blue }}, {{ bg_opacity }});
     color: {{ section.settings.text_color }};
   }
 
-  .header__logo img {
+  #shopify-section-{{ section.id }} .header__logo img {
     width: {{ logo_width }}px;
     height: auto;
   }
 
-  .header__nav a {
+  #shopify-section-{{ section.id }} .header__nav a {
     color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .header__nav a:focus {
+    outline: 2px solid {{ section.settings.text_color }};
+    outline-offset: 4px;
   }
 </style>
 
@@ -194,7 +198,8 @@
       "step": 5,
       "unit": "%",
       "label": "Background Opacity",
-      "default": 95
+      "default": 90,
+      "info": "Recommended: 90% for modern glassmorphism effect"
     },
     {
       "type": "color",
