@@ -1,28 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "header": {
-      "type": "header"
+      "type": "header",
+      "settings": {
+        "logo_text": "Everlink",
+        "logo_width": 140,
+        "nav_link_1_text": "Our Story",
+        "nav_link_1_url": "",
+        "nav_link_2_text": "Collections",
+        "nav_link_2_url": "",
+        "nav_link_3_text": "Contact",
+        "nav_link_3_url": "",
+        "sticky_header": true
+      }
     },
     "hero-banner": {
-      "type": "hero-banner"
+      "type": "hero-banner",
+      "settings": {
+        "title": "Where Memories Meet Elegance",
+        "text": "Timeless jewelry with invisible technology",
+        "button_text": "Shop Now",
+        "button_url": "",
+        "section_height": 600,
+        "title_size": 50,
+        "show_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_color": "#e0bfb8"
+      }
     },
     "value-proposition": {
-      "type": "value-proposition"
+      "type": "value-proposition",
+      "settings": {
+        "section_heading": "Why Everlink",
+        "background_color": "#f5f5f5",
+        "columns": "3"
+      }
     },
     "about-us": {
-      "type": "about-us"
+      "type": "about-us",
+      "settings": {
+        "image_position": "left",
+        "heading": "Our Story",
+        "body_text": "<p>We created Everlink to bridge the gap between timeless beauty and modern connection. Every piece is designed to be a vessel for your most precious memories, combining heritage craftsmanship with invisible technology.</p><p>Our jewelry doesn't just adorn—it preserves the moments that define us, creating modern heirlooms for generations to come.</p>",
+        "show_button": true,
+        "button_text": "Learn More",
+        "button_url": "",
+        "background_color": "#ffffff"
+      }
     },
     "products-grid": {
-      "type": "products-grid"
+      "type": "products-grid",
+      "settings": {
+        "section_heading": "Our Collection",
+        "section_subheading": "Timeless pieces, infinite memories",
+        "featured_collection": "",
+        "products_to_show": 4,
+        "grid_columns": "3",
+        "show_vendor": false,
+        "background_color": "#ffffff"
+      }
     },
     "testimonials": {
-      "type": "testimonials"
+      "type": "testimonials",
+      "settings": {
+        "section_heading": "What Our Customers Say",
+        "background_color": "#f5f5dc",
+        "layout": "grid"
+      }
     },
     "newsletter": {
-      "type": "newsletter"
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Everlink Community",
+        "subtext": "Be the first to know about new collections and the stories behind them",
+        "button_text": "Subscribe",
+        "background_color": "#e0bfb8",
+        "text_color": "#ffffff"
+      }
     },
     "footer": {
-      "type": "footer"
+      "type": "footer",
+      "settings": {
+        "brand_description": "Where memories meet elegance",
+        "instagram_url": "",
+        "facebook_url": "",
+        "pinterest_url": "",
+        "footer_menu_1": "",
+        "footer_menu_2": "",
+        "copyright_text": "© 2025 Everlink. All rights reserved.",
+        "background_color": "#2c2c2c",
+        "text_color": "#ffffff"
+      }
     }
   },
   "order": [

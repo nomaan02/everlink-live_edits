@@ -1,13 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "color_primary": "#E0BFB8",
-    "color_secondary": "#D4AF37",
+    "color_primary": "#6dd4d8",
+    "color_secondary": "#fefcf4",
     "color_text_primary": "#2C2C2C",
     "color_text_secondary": "#666666",
     "color_text_muted": "#999999",
     "color_background": "#FFFFFF",
     "color_background_secondary": "#F5F5F5",
-    "color_background_warm": "#F5F5DC",
+    "color_background_warm": "#457271",
     "font_heading": "Playfair Display, serif",
     "font_body": "Inter, sans-serif",
     "font_size_base": 16,
@@ -15,7 +24,7 @@
     "container_max_width": 1200,
     "section_vertical_padding": 80,
     "element_spacing": 24,
-    "button_primary_bg": "#E0BFB8",
+    "button_primary_bg": "#457271",
     "button_primary_text": "#FFFFFF",
     "button_secondary_bg": "#FFFFFF",
     "button_secondary_text": "#2C2C2C",
@@ -175,6 +184,7 @@
           "text_color": "#FFFFFF"
         }
       }
-    }
+    },
+    "content_for_index": []
   }
 }
