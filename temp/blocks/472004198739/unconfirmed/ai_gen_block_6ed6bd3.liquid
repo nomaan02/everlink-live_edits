@@ -1,6 +1,642 @@
+{% doc %}
+  @prompt
+    Update the navigation header to have sticky positioning that remains fixed at the top of the viewport as users scroll down the page. The glassmorphism effect should be maintained with the semi-transparent frosted glass appearance, and the navigation should smoothly stay visible at the top while scrolling.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-nav-header-{{ ai_gen_id }} {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: {{ block.settings.background_color | color_modify: 'alpha', block.settings.background_opacity }};
+    backdrop-filter: blur({{ block.settings.blur_amount }}px);
+    -webkit-backdrop-filter: blur({{ block.settings.blur_amount }}px);
+    border-bottom: 1px solid {{ block.settings.border_color | color_modify: 'alpha', block.settings.border_opacity }};
+    transition: all 0.3s ease;
+  }
+
+  .ai-nav-header-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: {{ block.settings.vertical_padding }}px {{ block.settings.horizontal_padding }}px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .ai-nav-logo-{{ ai_gen_id }} {
+    flex-shrink: 0;
+  }
+
+  .ai-nav-logo-link-{{ ai_gen_id }} {
+    display: block;
+    line-height: 0;
+  }
+
+  .ai-nav-logo-image-{{ ai_gen_id }} {
+    max-width: {{ block.settings.logo_width }}px;
+    height: auto;
+    display: block;
+  }
+
+  .ai-nav-logo-text-{{ ai_gen_id }} {
+    font-family: {{ block.settings.logo_font }};
+    font-size: {{ block.settings.logo_text_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.logo_text_color }};
+    text-decoration: none;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-nav-menu-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.menu_spacing }}px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    justify-content: {{ block.settings.menu_alignment }};
+  }
+
+  .ai-nav-menu-item-{{ ai_gen_id }} {
+    margin: 0;
+  }
+
+  .ai-nav-menu-link-{{ ai_gen_id }} {
+    font-family: {{ block.settings.menu_font }};
+    font-size: {{ block.settings.menu_font_size }}px;
+    color: {{ block.settings.menu_text_color }};
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    transition: color 0.3s ease;
+    font-weight: 500;
+  }
+
+  .ai-nav-menu-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.menu_hover_color }};
+  }
+
+  .ai-nav-actions-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .ai-nav-action-button-{{ ai_gen_id }} {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: {{ block.settings.icon_color }};
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-nav-action-button-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.icon_hover_color }};
+  }
+
+  .ai-nav-action-button-{{ ai_gen_id }} svg {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+  }
+
+  .ai-nav-mobile-toggle-{{ ai_gen_id }} {
+    display: none;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-nav-menu-{{ ai_gen_id }} {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: {{ block.settings.mobile_menu_bg }};
+      backdrop-filter: blur({{ block.settings.blur_amount }}px);
+      -webkit-backdrop-filter: blur({{ block.settings.blur_amount }}px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      z-index: 999;
+    }
+
+    .ai-nav-menu-{{ ai_gen_id }}.active {
+      display: flex;
+    }
+
+    .ai-nav-menu-link-{{ ai_gen_id }} {
+      font-size: {{ block.settings.menu_font_size | times: 1.2 }}px;
+    }
+
+    .ai-nav-mobile-toggle-{{ ai_gen_id }} {
+      display: flex;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: {{ block.settings.icon_color }};
+    }
+
+    .ai-nav-mobile-toggle-{{ ai_gen_id }} svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .ai-nav-header-container-{{ ai_gen_id }} {
+      padding: {{ block.settings.vertical_padding | times: 0.75 }}px {{ block.settings.horizontal_padding | times: 0.75 }}px;
+    }
+  }
+{% endstyle %}
+
+<nav-header-{{ ai_gen_id }} class="ai-nav-header-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-nav-header-container-{{ ai_gen_id }}">
+    <div class="ai-nav-logo-{{ ai_gen_id }}">
+      <a href="/" class="ai-nav-logo-link-{{ ai_gen_id }}">
+        {% if block.settings.logo != blank %}
+          <img
+            src="{{ block.settings.logo | image_url: width: 400 }}"
+            alt="{{ shop.name }}"
+            class="ai-nav-logo-image-{{ ai_gen_id }}"
+            width="{{ block.settings.logo_width }}"
+            height="auto"
+            loading="eager"
+          >
+        {% else %}
+          <span class="ai-nav-logo-text-{{ ai_gen_id }}">{{ block.settings.logo_text }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <ul class="ai-nav-menu-{{ ai_gen_id }}" id="ai-nav-menu-{{ ai_gen_id }}">
+      {% if block.settings.menu_link_1_text != blank %}
+        <li class="ai-nav-menu-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_1_url }}" class="ai-nav-menu-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_1_text }}
+          </a>
+        </li>
+      {% endif %}
+      {% if block.settings.menu_link_2_text != blank %}
+        <li class="ai-nav-menu-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_2_url }}" class="ai-nav-menu-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_2_text }}
+          </a>
+        </li>
+      {% endif %}
+      {% if block.settings.menu_link_3_text != blank %}
+        <li class="ai-nav-menu-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_3_url }}" class="ai-nav-menu-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_3_text }}
+          </a>
+        </li>
+      {% endif %}
+      {% if block.settings.menu_link_4_text != blank %}
+        <li class="ai-nav-menu-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_4_url }}" class="ai-nav-menu-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_4_text }}
+          </a>
+        </li>
+      {% endif %}
+      {% if block.settings.menu_link_5_text != blank %}
+        <li class="ai-nav-menu-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_5_url }}" class="ai-nav-menu-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_5_text }}
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+
+    <div class="ai-nav-actions-{{ ai_gen_id }}">
+      {% if block.settings.show_search %}
+        <button class="ai-nav-action-button-{{ ai_gen_id }}" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      {% endif %}
+
+      {% if block.settings.show_account %}
+        <a href="/account" class="ai-nav-action-button-{{ ai_gen_id }}" aria-label="Account">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+      {% endif %}
+
+      {% if block.settings.show_cart %}
+        <a href="/cart" class="ai-nav-action-button-{{ ai_gen_id }}" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </a>
+      {% endif %}
+
+      <button class="ai-nav-mobile-toggle-{{ ai_gen_id }}" aria-label="Toggle menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav-header-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class NavHeader{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.mobileToggle = this.querySelector('.ai-nav-mobile-toggle-{{ ai_gen_id }}');
+        this.mobileMenu = this.querySelector('.ai-nav-menu-{{ ai_gen_id }}');
+        
+        if (this.mobileToggle && this.mobileMenu) {
+          this.mobileToggle.addEventListener('click', () => this.toggleMobileMenu());
+        }
+
+        this.menuLinks = this.querySelectorAll('.ai-nav-menu-link-{{ ai_gen_id }}');
+        this.menuLinks.forEach(link => {
+          link.addEventListener('click', () => this.closeMobileMenu());
+        });
+      }
+
+      toggleMobileMenu() {
+        const isActive = this.mobileMenu.classList.contains('active');
+        this.mobileMenu.classList.toggle('active');
+        this.mobileToggle.setAttribute('aria-expanded', !isActive);
+        document.body.style.overflow = isActive ? '' : 'hidden';
+      }
+
+      closeMobileMenu() {
+        this.mobileMenu.classList.remove('active');
+        this.mobileToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    }
+
+    customElements.define('nav-header-{{ ai_gen_id }}', NavHeader{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Sticky navigation header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 150
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "Your Store"
+    },
+    {
+      "type": "select",
+      "id": "logo_font",
+      "label": "Logo font",
+      "options": [
+        {
+          "value": "Playfair Display, serif",
+          "label": "Playfair Display"
+        },
+        {
+          "value": "Inter, sans-serif",
+          "label": "Inter"
+        },
+        {
+          "value": "Georgia, serif",
+          "label": "Georgia"
+        },
+        {
+          "value": "Arial, sans-serif",
+          "label": "Arial"
+        }
+      ],
+      "default": "Playfair Display, serif"
+    },
+    {
+      "type": "range",
+      "id": "logo_text_size",
+      "min": 18,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo text size",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "logo_text_color",
+      "label": "Logo text color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "header",
+      "content": "Menu links"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_1_text",
+      "label": "Link 1 text",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_2_text",
+      "label": "Link 2 text",
+      "default": "Collections"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_3_text",
+      "label": "Link 3 text",
+      "default": "About"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_4_text",
+      "label": "Link 4 text",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_4_url",
+      "label": "Link 4 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_5_text",
+      "label": "Link 5 text"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_5_url",
+      "label": "Link 5 URL"
+    },
+    {
+      "type": "header",
+      "content": "Menu style"
+    },
+    {
+      "type": "select",
+      "id": "menu_font",
+      "label": "Menu font",
+      "options": [
+        {
+          "value": "Inter, sans-serif",
+          "label": "Inter"
+        },
+        {
+          "value": "Playfair Display, serif",
+          "label": "Playfair Display"
+        },
+        {
+          "value": "Arial, sans-serif",
+          "label": "Arial"
+        }
+      ],
+      "default": "Inter, sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "menu_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "menu_spacing",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Spacing",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "menu_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "menu_text_color",
+      "label": "Text color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "color",
+      "id": "menu_hover_color",
+      "label": "Hover color",
+      "default": "#6dd4d8"
+    },
+    {
+      "type": "header",
+      "content": "Action icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Show account",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show cart",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 18,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 22
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "color",
+      "id": "icon_hover_color",
+      "label": "Icon hover color",
+      "default": "#6dd4d8"
+    },
+    {
+      "type": "header",
+      "content": "Glassmorphism effect"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Background opacity",
+      "default": 0.8
+    },
+    {
+      "type": "range",
+      "id": "blur_amount",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Blur amount",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Border opacity",
+      "default": 0.3
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 960,
+      "max": 1440,
+      "step": 40,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "min": 12,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "min": 16,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Mobile menu"
+    },
+    {
+      "type": "color",
+      "id": "mobile_menu_bg",
+      "label": "Mobile menu background",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky navigation header"
+    }
+  ]
+}
 {% endschema %}
