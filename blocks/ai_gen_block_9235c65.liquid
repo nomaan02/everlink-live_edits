@@ -128,6 +128,29 @@
       {% endif %}
     </ul>
   </div>
+  <script>
+(function() {
+  const nav = document.querySelector('.ai-glass-nav-{{ ai_gen_id }}');
+  let lastScroll = 0;
+  
+  function handleScroll() {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (currentScroll > 50) {
+      nav.style.padding = '20px 0';
+    } else {
+      nav.style.padding = '{{ block.settings.vertical_padding }}px 0';
+    }
+    
+    lastScroll = currentScroll;
+  }
+  
+  // Add smooth transition
+  nav.style.transition = 'padding 0.3s ease';
+  
+  window.addEventListener('scroll', handleScroll);
+})();
+</script>
 </nav>
 
 {% schema %}
