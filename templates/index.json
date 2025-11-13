@@ -68,7 +68,7 @@
         "text": "connections that last forever.",
         "button_text": "{{ metaobjects[\"shopify--jewelry-material\"][\"14-k-gold-plated\"].label.value }}",
         "button_url": "",
-        "section_height": 550,
+        "section_height": 750,
         "title_size": 70,
         "show_overlay": true,
         "overlay_color": "#6dbfbc",
