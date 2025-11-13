@@ -9,22 +9,6 @@
  */
 {
   "sections": {
-    "header": {
-      "type": "header",
-      "disabled": true,
-      "settings": {
-        "logo_image": "shopify://shop_images/title-image.png",
-        "logo_text": "Everlink",
-        "logo_width": 240,
-        "nav_link_1_text": "",
-        "nav_link_1_url": "",
-        "nav_link_2_text": "",
-        "nav_link_2_url": "",
-        "nav_link_3_text": "",
-        "nav_link_3_url": "",
-        "sticky_header": true
-      }
-    },
     "17629935086197e2f2": {
       "type": "_blocks",
       "blocks": {
@@ -75,6 +59,7 @@
         "ai_gen_block_6ed6bd3_7Xk3AE"
       ],
       "disabled": true,
+      "name": "Header",
       "settings": {}
     },
     "176299294473ab967e": {
@@ -248,7 +233,7 @@
       "settings": {
         "section_heading": "Why Everlink",
         "background_color": "#ffffff",
-        "columns": "2"
+        "columns": "4"
       }
     },
     "17629933671330eb31": {
@@ -362,10 +347,25 @@
         "background_color": "#2c2c2c",
         "text_color": "#ffffff"
       }
+    },
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "logo_image": "shopify://shop_images/title-image.png",
+        "logo_text": "Everlink",
+        "logo_width": 240,
+        "nav_link_1_text": "",
+        "nav_link_1_url": "",
+        "nav_link_2_text": "",
+        "nav_link_2_url": "",
+        "nav_link_3_text": "",
+        "nav_link_3_url": "",
+        "sticky_header": false
+      }
     }
   },
   "order": [
-    "header",
     "17629935086197e2f2",
     "176299294473ab967e",
     "blocks_bDFUAx",
@@ -377,6 +377,7 @@
     "products-grid",
     "testimonials",
     "newsletter",
-    "footer"
+    "footer",
+    "header"
   ]
 }
