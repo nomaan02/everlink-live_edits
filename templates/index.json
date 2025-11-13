@@ -63,7 +63,7 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "hero_image": "shopify://shop_images/HERO_BANNER_UPDATED.jpg",
+        "hero_image": "shopify://shop_images/no_title_text.webp",
         "title": "",
         "text": "",
         "button_text": "",
