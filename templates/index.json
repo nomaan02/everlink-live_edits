@@ -63,18 +63,18 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "hero_image": "shopify://shop_images/Frame_35.png",
-        "title": "",
-        "text": "",
-        "button_text": "",
+        "hero_image": "shopify://shop_images/TRAsn0007.png",
+        "title": "everlink.",
+        "text": "connections that last forever.",
+        "button_text": "{{ metaobjects[\"shopify--jewelry-material\"][\"14-k-gold-plated\"].label.value }}",
         "button_url": "",
-        "section_height": 800,
-        "title_size": 30,
+        "section_height": 550,
+        "title_size": 70,
         "show_overlay": true,
-        "overlay_color": "#365453",
-        "overlay_opacity": 0,
+        "overlay_color": "#6dbfbc",
+        "overlay_opacity": 20,
         "title_color": "#365453",
-        "text_color": "#457271",
+        "text_color": "#000000",
         "button_color": "#457271"
       }
     },
@@ -169,22 +169,14 @@
         "background_color": "#ffffff"
       }
     },
-    "testimonials": {
-      "type": "testimonials",
-      "settings": {
-        "section_heading": "What Our Customers Say",
-        "background_color": "#f5f5dc",
-        "layout": "grid"
-      }
-    },
     "newsletter": {
       "type": "newsletter",
       "settings": {
         "heading": "Join the Everlink Community",
         "subtext": "Be the first to know about new collections and the stories behind them",
         "button_text": "Subscribe",
-        "background_color": "#e0bfb8",
-        "text_color": "#ffffff"
+        "background_color": "#ffffff",
+        "text_color": "#457271"
       }
     },
     "footer": {
@@ -225,7 +217,6 @@
     "17629933671330eb31",
     "about-us",
     "products-grid",
-    "testimonials",
     "newsletter",
     "footer",
     "header"
