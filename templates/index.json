@@ -9,59 +9,6 @@
  */
 {
   "sections": {
-    "17629935086197e2f2": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_6ed6bd3_7Xk3AE": {
-          "type": "ai_gen_block_6ed6bd3",
-          "settings": {
-            "logo_width": 150,
-            "logo_text": "Your Store",
-            "logo_font": "Playfair Display, serif",
-            "logo_text_size": 24,
-            "logo_text_color": "#2c2c2c",
-            "menu_link_1_text": "Shop",
-            "menu_link_1_url": "",
-            "menu_link_2_text": "Collections",
-            "menu_link_2_url": "",
-            "menu_link_3_text": "About",
-            "menu_link_3_url": "",
-            "menu_link_4_text": "Contact",
-            "menu_link_4_url": "",
-            "menu_link_5_text": "",
-            "menu_link_5_url": "",
-            "menu_font": "Inter, sans-serif",
-            "menu_font_size": 15,
-            "menu_spacing": 32,
-            "menu_alignment": "center",
-            "menu_text_color": "#2c2c2c",
-            "menu_hover_color": "#6dd4d8",
-            "show_search": true,
-            "show_account": true,
-            "show_cart": true,
-            "icon_size": 22,
-            "icon_color": "#2c2c2c",
-            "icon_hover_color": "#6dd4d8",
-            "background_color": "#ffffff",
-            "background_opacity": 0.8,
-            "blur_amount": 10,
-            "border_color": "#e0e0e0",
-            "border_opacity": 0.3,
-            "container_width": 1200,
-            "vertical_padding": 20,
-            "horizontal_padding": 24,
-            "mobile_menu_bg": "#ffffff"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_6ed6bd3_7Xk3AE"
-      ],
-      "disabled": true,
-      "name": "Header",
-      "settings": {}
-    },
     "176299294473ab967e": {
       "type": "_blocks",
       "blocks": {
@@ -110,104 +57,7 @@
       "block_order": [
         "ai_gen_block_9235c65_b8WnhX"
       ],
-      "settings": {}
-    },
-    "blocks_bDFUAx": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_58dacb9_BCyMWU": {
-          "type": "ai_gen_block_58dacb9",
-          "settings": {
-            "logo_text": "EVERLINK",
-            "logo_link": "",
-            "logo_size": 20,
-            "link_1_text": "Home",
-            "link_1_url": "",
-            "link_2_text": "Shop",
-            "link_2_url": "",
-            "link_3_text": "About",
-            "link_3_url": "",
-            "link_4_text": "Contact",
-            "link_4_url": "",
-            "link_5_text": "",
-            "link_5_url": "",
-            "cta_text": "",
-            "cta_url": "",
-            "blur_amount": 20,
-            "navbar_bg_color": "#0000000d",
-            "fallback_bg_color": "#0000000d",
-            "border_color": "#0000000d",
-            "text_color": "#154342",
-            "link_hover_bg": "#0000000d",
-            "link_hover_color": "#000000",
-            "cta_bg_color": "#457271",
-            "cta_text_color": "#ffffff",
-            "cta_hover_bg": "#6dd4d8",
-            "container_width": 1280,
-            "navbar_padding": 12,
-            "menu_gap": 30,
-            "link_size": 15,
-            "link_border_radius": 6,
-            "cta_border_radius": 8,
-            "mobile_menu_bg": "#ffffff"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_58dacb9_BCyMWU"
-      ],
-      "disabled": true,
-      "name": "Glassmorphism navbar",
-      "settings": {}
-    },
-    "blocks_GBpXBF": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_58dacb9_BdiYBx": {
-          "type": "ai_gen_block_58dacb9",
-          "disabled": true,
-          "settings": {
-            "logo_text": "everlink",
-            "logo_link": "",
-            "logo_size": 16,
-            "link_1_text": "Home",
-            "link_1_url": "",
-            "link_2_text": "Shop",
-            "link_2_url": "",
-            "link_3_text": "About",
-            "link_3_url": "",
-            "link_4_text": "Contact",
-            "link_4_url": "",
-            "link_5_text": "",
-            "link_5_url": "",
-            "cta_text": "",
-            "cta_url": "",
-            "blur_amount": 6,
-            "navbar_bg_color": "#ffffff4d",
-            "fallback_bg_color": "#0000000d",
-            "border_color": "#ffffff4d",
-            "text_color": "#365453",
-            "link_hover_bg": "#0000000d",
-            "link_hover_color": "#365453",
-            "cta_bg_color": "#c3e9e8",
-            "cta_text_color": "#ffffff",
-            "cta_hover_bg": "#6dd4d8",
-            "container_width": 1280,
-            "navbar_padding": 10,
-            "menu_gap": 50,
-            "link_size": 14,
-            "link_border_radius": 4,
-            "cta_border_radius": 30,
-            "mobile_menu_bg": "#fffffff2"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_58dacb9_BdiYBx"
-      ],
-      "disabled": true,
+      "name": "Header/Nav",
       "settings": {}
     },
     "hero-banner": {
@@ -230,6 +80,7 @@
     },
     "value-proposition": {
       "type": "value-proposition",
+      "disabled": true,
       "settings": {
         "section_heading": "Why Everlink",
         "background_color": "#ffffff",
@@ -290,11 +141,13 @@
       "block_order": [
         "ai_gen_block_1dd41a3_UBMzHQ"
       ],
+      "disabled": true,
       "settings": {}
     },
     "about-us": {
       "type": "about-us",
       "settings": {
+        "about_image": "shopify://shop_images/TRAsn0001.png",
         "image_position": "left",
         "heading": "Our Story",
         "body_text": "<p>We created Everlink to bridge the gap between timeless beauty and modern connection. Every piece is designed to be a vessel for your most precious memories, combining heritage craftsmanship with invisible technology.</p><p>Our jewelry doesn't just adorn—it preserves the moments that define us, creating modern heirlooms for generations to come.</p>",
@@ -309,7 +162,7 @@
       "settings": {
         "section_heading": "Our Collection",
         "section_subheading": "Timeless pieces, infinite memories",
-        "featured_collection": "",
+        "featured_collection": "products",
         "products_to_show": 4,
         "grid_columns": "3",
         "show_vendor": false,
@@ -366,10 +219,7 @@
     }
   },
   "order": [
-    "17629935086197e2f2",
     "176299294473ab967e",
-    "blocks_bDFUAx",
-    "blocks_GBpXBF",
     "hero-banner",
     "value-proposition",
     "17629933671330eb31",
