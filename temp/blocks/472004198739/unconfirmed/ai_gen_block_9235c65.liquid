@@ -1,6 +1,452 @@
+{% doc %}
+  @prompt
+    Create a centered navigation header with a glassmorphism effect. The navigation bar should have a semi-transparent background with a frosted glass appearance (backdrop blur), be horizontally centered on the page, and contain navigation menu items. The design should be minimal and clean with no additional elements in the header area. Include subtle border and shadow effects to enhance the glass morphism aesthetic., i want it to sit on top of my hero image and for the section to have a fully transparent background so that the nav bar sits on top of the hero banner
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-glass-nav-{{ ai_gen_id }} {
+    width: 100%;
+    padding: {{ block.settings.vertical_padding }}px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: transparent;
+  }
+
+  .ai-glass-nav-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.nav_width }}px;
+    margin: 0 auto;
+    background: {{ block.settings.background_color }};
+    backdrop-filter: blur({{ block.settings.blur_amount }}px);
+    -webkit-backdrop-filter: blur({{ block.settings.blur_amount }}px);
+    border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    box-shadow: {{ block.settings.shadow_x }}px {{ block.settings.shadow_y }}px {{ block.settings.shadow_blur }}px {{ block.settings.shadow_color }};
+    padding: {{ block.settings.nav_padding_vertical }}px {{ block.settings.nav_padding_horizontal }}px;
+  }
+
+  .ai-glass-nav-menu-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: {{ block.settings.menu_gap }}px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .ai-glass-nav-item-{{ ai_gen_id }} {
+    margin: 0;
+  }
+
+  .ai-glass-nav-link-{{ ai_gen_id }} {
+    color: {{ block.settings.link_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.font_size }}px;
+    font-weight: {{ block.settings.font_weight }};
+    padding: {{ block.settings.link_padding_vertical }}px {{ block.settings.link_padding_horizontal }}px;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: {{ block.settings.link_border_radius }}px;
+    letter-spacing: {{ block.settings.letter_spacing }}px;
+  }
+
+  .ai-glass-nav-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.link_hover_color }};
+    background: {{ block.settings.link_hover_bg }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-glass-nav-container-{{ ai_gen_id }} {
+      max-width: calc(100% - 32px);
+      margin: 0 16px;
+    }
+
+    .ai-glass-nav-menu-{{ ai_gen_id }} {
+      gap: {{ block.settings.menu_gap | divided_by: 2 }}px;
+    }
+
+    .ai-glass-nav-link-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.9 }}px;
+      padding: {{ block.settings.link_padding_vertical | times: 0.8 }}px {{ block.settings.link_padding_horizontal | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<nav class="ai-glass-nav-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-glass-nav-container-{{ ai_gen_id }}">
+    <ul class="ai-glass-nav-menu-{{ ai_gen_id }}">
+      {% if block.settings.menu_link_1_text != blank %}
+        <li class="ai-glass-nav-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_1_url }}" class="ai-glass-nav-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_1_text }}
+          </a>
+        </li>
+      {% endif %}
+      
+      {% if block.settings.menu_link_2_text != blank %}
+        <li class="ai-glass-nav-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_2_url }}" class="ai-glass-nav-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_2_text }}
+          </a>
+        </li>
+      {% endif %}
+      
+      {% if block.settings.menu_link_3_text != blank %}
+        <li class="ai-glass-nav-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_3_url }}" class="ai-glass-nav-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_3_text }}
+          </a>
+        </li>
+      {% endif %}
+      
+      {% if block.settings.menu_link_4_text != blank %}
+        <li class="ai-glass-nav-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_4_url }}" class="ai-glass-nav-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_4_text }}
+          </a>
+        </li>
+      {% endif %}
+      
+      {% if block.settings.menu_link_5_text != blank %}
+        <li class="ai-glass-nav-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_5_url }}" class="ai-glass-nav-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_5_text }}
+          </a>
+        </li>
+      {% endif %}
+      
+      {% if block.settings.menu_link_6_text != blank %}
+        <li class="ai-glass-nav-item-{{ ai_gen_id }}">
+          <a href="{{ block.settings.menu_link_6_url }}" class="ai-glass-nav-link-{{ ai_gen_id }}">
+            {{ block.settings.menu_link_6_text }}
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Glassmorphism navigation",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Menu items"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_1_text",
+      "label": "Link 1 text",
+      "default": "Home"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_2_text",
+      "label": "Link 2 text",
+      "default": "Shop"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_3_text",
+      "label": "Link 3 text",
+      "default": "About"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_4_text",
+      "label": "Link 4 text",
+      "default": "Collections"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_4_url",
+      "label": "Link 4 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_5_text",
+      "label": "Link 5 text",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_5_url",
+      "label": "Link 5 URL"
+    },
+    {
+      "type": "text",
+      "id": "menu_link_6_text",
+      "label": "Link 6 text"
+    },
+    {
+      "type": "url",
+      "id": "menu_link_6_url",
+      "label": "Link 6 URL"
+    },
+    {
+      "type": "header",
+      "content": "Glassmorphism effect"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "rgba(255, 255, 255, 0.1)"
+    },
+    {
+      "type": "range",
+      "id": "blur_amount",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Blur amount",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Border width",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "rgba(255, 255, 255, 0.2)"
+    },
+    {
+      "type": "header",
+      "content": "Shadow"
+    },
+    {
+      "type": "range",
+      "id": "shadow_x",
+      "min": -20,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Shadow X offset",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "shadow_y",
+      "min": -20,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Shadow Y offset",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "shadow_blur",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Shadow blur",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "shadow_color",
+      "label": "Shadow color",
+      "default": "rgba(0, 0, 0, 0.1)"
+    },
+    {
+      "type": "header",
+      "content": "Navigation style"
+    },
+    {
+      "type": "range",
+      "id": "nav_width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Navigation width",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "nav_padding_vertical",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "nav_padding_horizontal",
+      "min": 16,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Outer vertical padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Menu items style"
+    },
+    {
+      "type": "range",
+      "id": "menu_gap",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between items",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#6dd4d8"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_bg",
+      "label": "Link hover background",
+      "default": "rgba(109, 212, 216, 0.1)"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": 0,
+      "max": 3,
+      "step": 0.5,
+      "label": "Letter spacing",
+      "default": 0.5
+    },
+    {
+      "type": "range",
+      "id": "link_padding_vertical",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Link vertical padding",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "link_padding_horizontal",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Link horizontal padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "link_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Link border radius",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Glassmorphism navigation"
+    }
+  ]
+}
 {% endschema %}
