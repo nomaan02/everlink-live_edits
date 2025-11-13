@@ -25,6 +25,58 @@
         "sticky_header": true
       }
     },
+    "17629935086197e2f2": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6ed6bd3_7Xk3AE": {
+          "type": "ai_gen_block_6ed6bd3",
+          "settings": {
+            "logo_width": 150,
+            "logo_text": "Your Store",
+            "logo_font": "Playfair Display, serif",
+            "logo_text_size": 24,
+            "logo_text_color": "#2C2C2C",
+            "menu_link_1_text": "Shop",
+            "menu_link_1_url": "",
+            "menu_link_2_text": "Collections",
+            "menu_link_2_url": "",
+            "menu_link_3_text": "About",
+            "menu_link_3_url": "",
+            "menu_link_4_text": "Contact",
+            "menu_link_4_url": "",
+            "menu_link_5_text": "",
+            "menu_link_5_url": "",
+            "menu_font": "Inter, sans-serif",
+            "menu_font_size": 15,
+            "menu_spacing": 32,
+            "menu_alignment": "center",
+            "menu_text_color": "#2C2C2C",
+            "menu_hover_color": "#6dd4d8",
+            "show_search": true,
+            "show_account": true,
+            "show_cart": true,
+            "icon_size": 22,
+            "icon_color": "#2C2C2C",
+            "icon_hover_color": "#6dd4d8",
+            "background_color": "#ffffff",
+            "background_opacity": 0.8,
+            "blur_amount": 10,
+            "border_color": "#e0e0e0",
+            "border_opacity": 0.3,
+            "container_width": 1200,
+            "vertical_padding": 20,
+            "horizontal_padding": 24,
+            "mobile_menu_bg": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6ed6bd3_7Xk3AE"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
     "176299294473ab967e": {
       "type": "_blocks",
       "blocks": {
@@ -52,20 +104,20 @@
             "shadow_blur": 20,
             "shadow_color": "rgba(0, 0, 0, 0.1)",
             "nav_width": 800,
-            "border_radius": 16,
-            "nav_padding_vertical": 16,
-            "nav_padding_horizontal": 32,
-            "vertical_padding": 20,
-            "menu_gap": 32,
-            "link_color": "#FFFFFF",
+            "border_radius": 20,
+            "nav_padding_vertical": 8,
+            "nav_padding_horizontal": 16,
+            "vertical_padding": 40,
+            "menu_gap": 48,
+            "link_color": "#365453",
             "link_hover_color": "#6dd4d8",
-            "link_hover_bg": "rgba(109, 212, 216, 0.1)",
-            "font_size": 15,
-            "font_weight": "500",
+            "link_hover_bg": "#ffffff4d",
+            "font_size": 14,
+            "font_weight": "300",
             "letter_spacing": 0.5,
             "link_padding_vertical": 8,
             "link_padding_horizontal": 16,
-            "link_border_radius": 8
+            "link_border_radius": 6
           },
           "blocks": {}
         }
@@ -199,6 +251,62 @@
         "columns": "2"
       }
     },
+    "17629933671330eb31": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_1dd41a3_UBMzHQ": {
+          "type": "ai_gen_block_1dd41a3",
+          "settings": {
+            "item_1_date": "2020",
+            "item_1_title": "Company founded",
+            "item_1_description": "Our journey began with a simple idea and a passion for excellence.",
+            "item_2_date": "2021",
+            "item_2_title": "First product launch",
+            "item_2_description": "We introduced our flagship product to the market with overwhelming success.",
+            "item_3_date": "2022",
+            "item_3_title": "Expanded globally",
+            "item_3_description": "Reached customers in over 50 countries worldwide.",
+            "item_4_date": "2023",
+            "item_4_title": "Award winning",
+            "item_4_description": "Recognized as industry leader with multiple awards.",
+            "item_5_date": "2024",
+            "item_5_title": "Innovation milestone",
+            "item_5_description": "Launched groundbreaking technology that changed the game.",
+            "item_6_date": "2025",
+            "item_6_title": "Future vision",
+            "item_6_description": "Continuing to innovate and shape the future of our industry.",
+            "max_width": 800,
+            "section_padding": 60,
+            "item_spacing": 60,
+            "line_width": 3,
+            "line_color": "#E0E0E0",
+            "active_line_color": "#6dd4d8",
+            "dot_size": 16,
+            "dot_border_width": 3,
+            "dot_glow_size": 8,
+            "dot_color": "#FFFFFF",
+            "active_dot_color": "#6dd4d8",
+            "card_background": "#FFFFFF",
+            "card_padding": 24,
+            "card_border_radius": 8,
+            "card_border_width": 3,
+            "date_font_size": 12,
+            "date_color": "#999999",
+            "active_date_color": "#6dd4d8",
+            "title_font_size": 24,
+            "title_color": "#2C2C2C",
+            "description_font_size": 16,
+            "description_color": "#666666",
+            "background_color": "#FFFFFF"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_1dd41a3_UBMzHQ"
+      ],
+      "settings": {}
+    },
     "about-us": {
       "type": "about-us",
       "settings": {
@@ -258,11 +366,13 @@
   },
   "order": [
     "header",
+    "17629935086197e2f2",
     "176299294473ab967e",
     "blocks_bDFUAx",
     "blocks_GBpXBF",
     "hero-banner",
     "value-proposition",
+    "17629933671330eb31",
     "about-us",
     "products-grid",
     "testimonials",
