@@ -63,17 +63,17 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "hero_image": "shopify://shop_images/TRAsn0007.png",
-        "title": "everlink.",
-        "text": "connections that last forever.",
-        "button_text": "{{ metaobjects[\"shopify--jewelry-material\"][\"14-k-gold-plated\"].label.value }}",
+        "hero_image": "shopify://shop_images/new_frame.png",
+        "title": "",
+        "text": "",
+        "button_text": "",
         "button_url": "",
         "section_height": 750,
         "title_size": 70,
         "show_overlay": true,
         "overlay_color": "#6dbfbc",
-        "overlay_opacity": 20,
-        "title_color": "#365453",
+        "overlay_opacity": 0,
+        "title_color": "#ffffff",
         "text_color": "#000000",
         "button_color": "#457271"
       }
