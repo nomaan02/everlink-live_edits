@@ -25,6 +25,56 @@
         "sticky_header": true
       }
     },
+    "176299294473ab967e": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_9235c65_b8WnhX": {
+          "type": "ai_gen_block_9235c65",
+          "settings": {
+            "menu_link_1_text": "Home",
+            "menu_link_1_url": "",
+            "menu_link_2_text": "Shop",
+            "menu_link_2_url": "",
+            "menu_link_3_text": "About",
+            "menu_link_3_url": "",
+            "menu_link_4_text": "Collections",
+            "menu_link_4_url": "",
+            "menu_link_5_text": "Contact",
+            "menu_link_5_url": "",
+            "menu_link_6_text": "",
+            "menu_link_6_url": "",
+            "background_color": "rgba(255, 255, 255, 0.1)",
+            "blur_amount": 10,
+            "border_width": 1,
+            "border_color": "rgba(255, 255, 255, 0.2)",
+            "shadow_x": 0,
+            "shadow_y": 4,
+            "shadow_blur": 20,
+            "shadow_color": "rgba(0, 0, 0, 0.1)",
+            "nav_width": 800,
+            "border_radius": 16,
+            "nav_padding_vertical": 16,
+            "nav_padding_horizontal": 32,
+            "vertical_padding": 20,
+            "menu_gap": 32,
+            "link_color": "#FFFFFF",
+            "link_hover_color": "#6dd4d8",
+            "link_hover_bg": "rgba(109, 212, 216, 0.1)",
+            "font_size": 15,
+            "font_weight": "500",
+            "letter_spacing": 0.5,
+            "link_padding_vertical": 8,
+            "link_padding_horizontal": 16,
+            "link_border_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_9235c65_b8WnhX"
+      ],
+      "settings": {}
+    },
     "blocks_bDFUAx": {
       "type": "_blocks",
       "blocks": {
@@ -47,14 +97,14 @@
             "cta_text": "",
             "cta_url": "",
             "blur_amount": 20,
-            "navbar_bg_color": "rgba(0, 0, 0, 0.05)",
-            "fallback_bg_color": "rgba(0, 0, 0, 0.05)",
-            "border_color": "rgba(0, 0, 0, 0.05)",
+            "navbar_bg_color": "#0000000d",
+            "fallback_bg_color": "#0000000d",
+            "border_color": "#0000000d",
             "text_color": "#154342",
-            "link_hover_bg": "rgba(0, 0, 0, 0.05)",
+            "link_hover_bg": "#0000000d",
             "link_hover_color": "#000000",
             "cta_bg_color": "#457271",
-            "cta_text_color": "#FFFFFF",
+            "cta_text_color": "#ffffff",
             "cta_hover_bg": "#6dd4d8",
             "container_width": 1280,
             "navbar_padding": 12,
@@ -70,6 +120,7 @@
       "block_order": [
         "ai_gen_block_58dacb9_BCyMWU"
       ],
+      "disabled": true,
       "name": "Glassmorphism navbar",
       "settings": {}
     },
@@ -96,14 +147,14 @@
             "cta_text": "",
             "cta_url": "",
             "blur_amount": 6,
-            "navbar_bg_color": "rgba(255, 255, 255, 0.3)",
-            "fallback_bg_color": "rgba(0, 0, 0, 0.05)",
-            "border_color": "rgba(255, 255, 255, 0.3)",
+            "navbar_bg_color": "#ffffff4d",
+            "fallback_bg_color": "#0000000d",
+            "border_color": "#ffffff4d",
             "text_color": "#365453",
-            "link_hover_bg": "rgba(0, 0, 0, 0.05)",
+            "link_hover_bg": "#0000000d",
             "link_hover_color": "#365453",
             "cta_bg_color": "#c3e9e8",
-            "cta_text_color": "#FFFFFF",
+            "cta_text_color": "#ffffff",
             "cta_hover_bg": "#6dd4d8",
             "container_width": 1280,
             "navbar_padding": 10,
@@ -111,7 +162,7 @@
             "link_size": 14,
             "link_border_radius": 4,
             "cta_border_radius": 30,
-            "mobile_menu_bg": "rgba(255, 255, 255, 0.95)"
+            "mobile_menu_bg": "#fffffff2"
           },
           "blocks": {}
         }
@@ -157,7 +208,7 @@
         "show_button": true,
         "button_text": "Learn More",
         "button_url": "",
-        "background_color": "rgba(255, 255, 255, 0.3)"
+        "background_color": "#ffffff4d"
       }
     },
     "products-grid": {
@@ -207,6 +258,7 @@
   },
   "order": [
     "header",
+    "176299294473ab967e",
     "blocks_bDFUAx",
     "blocks_GBpXBF",
     "hero-banner",
